@@ -1,7 +1,12 @@
+import * as dotenv from "dotenv"
 import Express from "express"
 import {v4} from "uuid"
 
+dotenv.config();
+
 const App = Express();
+
+const port = process.env.PORT;
 
 App.get("/", (request, response) => {
     return response.status(200).json({message: "server is running ok"})
@@ -21,6 +26,6 @@ App.post("/user", (request, response) => {
     return response.status(201).json({data: users});
 })
 
-App.listen(3000, () => {
+App.listen(port, () => {
     console.log("server is running on port 3000")
 })
