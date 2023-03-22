@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsup index.ts",
     "dev": "tsx index.ts",
-    "start": "nodemon dist/index.js"
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",
