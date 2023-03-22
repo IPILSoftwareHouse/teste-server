@@ -1,12 +1,15 @@
 import * as dotenv from "dotenv"
 import Express from "express"
 import {v4} from "uuid"
-
+import SwaggerUI from "swagger-ui-express"
+import swaggerFile from "./docs/swagger.json"
 dotenv.config();
 
 const App = Express();
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+
+App.use('/api-docs', SwaggerUI.serve, SwaggerUI.setup(swaggerFile))
 
 App.get("/", (request, response) => {
     return response.status(200).json({message: "server is running ok"})

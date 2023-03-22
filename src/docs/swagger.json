@@ -1,0 +1,370 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "IPIL Software Documentation",
+        "description": "This is an API to Instituto Politecnico Industrial de Luanda",
+        "version": "1.0.0",
+        "contact": {
+            "email": "ipilmakarenko@gmail.com"
+        }
+    },
+    "paths": {
+        "/user": {
+            "post": {
+                "tags": ["User"],
+                "summary": "create User",
+                "description": "create a new User",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "personalData_id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Ipil",
+                                    "email":"ipilTeste@gmail.com",
+                                    "password": "ipiltest_password",
+                                    "personalData_id": "202033ld300ddmsm230202"
+                                }
+                            }
+                        }
+                    }
+                },
+                "response": {
+                    "201": {
+                        "description": "created"
+                    }
+                }
+            },
+            "get": {
+                "tags": ["User"],
+                "summary": "List all Users",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "password": {
+                                                "type": "string"
+                                            },
+                                            "emial": {
+                                                "type": "string"
+                                            },
+                                            "personalData_id": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/personalData": {
+            "post": {
+                "tags": ["Personal Data"],
+                "summary": "Create a Personal Data",
+                "description": "Create a new Personal Data",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "bi": {
+                                        "type": "string"
+                                    },
+                                    "fullName": {
+                                        "type": "string"
+                                    },
+                                    "birthdate": {
+                                        "type": "string"
+                                    },
+                                    "avatar": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "bi": "099349222LA032",
+                                    "fullName": "IPIL FullName",
+                                    "birthdate": "",
+                                    "avatar": "",
+                                    "gender": "M"
+                                }
+                            }
+                        }
+                    }
+                },
+                "response": {
+                    "201": {
+                        "description": "personal data was created"
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+                "post": {
+                    "tags": ["Auth"],
+                    "summary": "Login to account",
+                    "description": "Login to your account",
+                    "requestBody": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "password": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "email": "ipilTeste@gmail.com",
+                                        "password": "hashhashhash"
+                                    }
+                                }
+                            },
+                            "response": {
+                                "201": {
+                                    "description": "login was a success"
+                                }
+                            }
+                        }
+                }
+            }
+        },
+        "/course": {
+            "post": {
+                "tags": ["Course"],
+                "summary": "Create Course",
+                "description": "Create a new Course",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {"type": "string"},
+                                    "prefix": {"type": "string"},
+                                    "area_id": {"type": "string"}
+                                },
+                                "example": {
+                                    "name": "Informática",
+                                    "prefix": "II",
+                                    "area_id": "1223445abcd"
+                                }
+                            }
+                        }
+                    }
+                },
+                "response": {
+                    "201": {
+                        "description": "course was created"
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Course"],
+                "summary": "List Courses",
+                "description": "List all Courses",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {"type": "string"},
+                                            "prefix": {"type": "string"},
+                                            "area_id": {"type": "string"},
+                                            "created_at":{"type": "string"}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/area": {
+            "post": {
+                "tags": ["Area"],
+                "summary": "Create an Area",
+                "description": "Create a new Area",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "prefix": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Técnico de Informática",
+                                    "prefix": "II"
+                                }
+                            }
+                        }
+                    }
+                },
+                "response": {
+                    "201": {
+                        "description": "area was created"
+                    }
+                }
+            }
+        },
+        "/province": {
+            "post": {
+                "tags": ["Province"],
+                "summary": "Create a Province",
+                "description": "Create a new Province",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Luanda"
+                                }
+                            }
+                        }
+                    }
+                },
+                "response": {
+                    "201": {
+                        "description": "province was created"
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Province"],
+                "summary": "List Provinces",
+                "description": "List all Provinces",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {"type": "string"},
+                                            "created_at": {"type": "string"}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": ["Register"],
+                "summary": "Create a Register",
+                "description": "Create a new Register",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "StartDate": {
+                                        "type": "string"
+                                    },
+                                    "endDate": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "response": {
+                    "201": {
+                        "description": "register was created"
+                    }
+                }
+            }
+        },
+        "/town": {
+            "post": {
+                "tags": ["town"],
+                "summary": "Create a town",
+                "description": "Create a new town",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "response": {
+                    "201": {
+                        "description": "town was created"
+                    }
+                }
+            }
+        }
+    }
+}
