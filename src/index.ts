@@ -12,7 +12,7 @@ const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 App.use('/api-docs', SwaggerUI.serve, SwaggerUI.setup(swaggerFile))
 
 App.get("/", (request, response) => {
-    return response.status(200).json({message: "server is running ok"})
+    return response.status(200).json({message: "INSTITUTO POLITECNICO INDUSTRIAL DE LUANDA SERVER"})
 })
 
 interface UserProps {
