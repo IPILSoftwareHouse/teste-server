@@ -6,10 +6,13 @@
   "author": "Elísio Mualumene <85412882+elisiomualumene@users.noreply.github.com>",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": "18"
+  }
   "scripts": {
-    "build": "tsup index.ts",
-    "dev": "tsx index.ts",
-    "start": "nodemon dist/index.js"
+    "build": "tsup src",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",
