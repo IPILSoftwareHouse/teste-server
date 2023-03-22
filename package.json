@@ -6,6 +6,9 @@
   "author": "Elísio Mualumene <85412882+elisiomualumene@users.noreply.github.com>",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
     "build": "tsc index.ts",
     "dev": "tsx index.ts",
