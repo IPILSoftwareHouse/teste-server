@@ -7,8 +7,8 @@
   "license": "MIT",
   "private": true,
   "engines": {
-    "node": "18"
-  }
+    "node": "19"
+  },
   "scripts": {
     "build": "tsup src",
     "dev": "tsx src/index.ts",

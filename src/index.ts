@@ -6,7 +6,7 @@ dotenv.config();
 
 const App = Express();
 
-const port = process.env.PORT;
+const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 App.get("/", (request, response) => {
     return response.status(200).json({message: "server is running ok"})
@@ -27,5 +27,5 @@ App.post("/user", (request, response) => {
 })
 
 App.listen(port, () => {
-    console.log("server is running on port 3000")
+    console.log(`Server is running on port ${port}`)
 })
